@@ -1,0 +1,74 @@
+.focus-container {
+  position: relative;
+  display: flex;
+  gap: 0.5em; /* Mengurangi jarak antar kata sedikit */
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px; /* Memberi sedikit ruang agar glow tidak terpotong */
+}
+
+.focus-word {
+  position: relative;
+  /* Menggunakan style dari judul asli kita */
+  font-family: 'Pacifico', cursive;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 400; /* Pacifico tidak perlu tebal */
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition:
+    filter 0.3s ease,
+    color 0.3s ease;
+}
+
+.focus-word.active {
+  filter: blur(0);
+}
+
+.focus-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  box-sizing: content-box;
+  border: none;
+}
+
+.corner {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  border: 3px solid var(--border-color, #fff);
+  filter: drop-shadow(0px 0px 5px var(--glow-color, #fff));
+  border-radius: 3px;
+  transition: none;
+}
+
+.top-left {
+  top: -10px;
+  left: -10px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.top-right {
+  top: -10px;
+  right: -10px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.bottom-left {
+  bottom: -10px;
+  left: -10px;
+  border-right: none;
+  border-top: none;
+}
+
+.bottom-right {
+  bottom: -10px;
+  right: -10px;
+  border-left: none;
+  border-top: none;
+}
