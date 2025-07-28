@@ -1,28 +1,50 @@
 import React from 'react';
 import Countdown from 'react-countdown';
+import PixelTransition from './PixelTransition.jsx';
 
 const renderer = ({ days, hours, minutes, seconds, completed }) => {
+  const pixelColor = "#FF69B4"; // Warna pink untuk efek pixel
+
+  const renderContent = (value, label) => (
+    <>
+      <span className="time-value">{value}</span>
+      <p className="time-label">{label}</p>
+    </>
+  );
+
+  const renderLetter = (letter) => (
+    <span className="hidden-letter">{letter}</span>
+  );
+
   if (completed) {
     return <h1 className="main-title">SELAMAT ULANG TAHUN! 🎉</h1>;
   } else {
     return (
       <div className="countdown-container">
-        <div className="time-box">
-          <span className="time-value">{days}</span>
-          <p className="time-label">Hari</p>
-        </div>
-        <div className="time-box">
-          <span className="time-value">{hours}</span>
-          <p className="time-label">Jam</p>
-        </div>
-        <div className="time-box">
-          <span className="time-value">{minutes}</span>
-          <p className="time-label">Menit</p>
-        </div>
-        <div className="time-box">
-          <span className="time-value">{seconds}</span>
-          <p className="time-label">Detik</p>
-        </div>
+        <PixelTransition
+          className="time-box"
+          pixelColor={pixelColor}
+          firstContent={renderContent(days, 'Hari')}
+          secondContent={renderLetter('N')}
+        />
+        <PixelTransition
+          className="time-box"
+          pixelColor={pixelColor}
+          firstContent={renderContent(hours, 'Jam')}
+          secondContent={renderLetter('I')}
+        />
+        <PixelTransition
+          className="time-box"
+          pixelColor={pixelColor}
+          firstContent={renderContent(minutes, 'Menit')}
+          secondContent={renderLetter('S')}
+        />
+        <PixelTransition
+          className="time-box"
+          pixelColor={pixelColor}
+          firstContent={renderContent(seconds, 'Detik')}
+          secondContent={renderLetter('A')}
+        />
       </div>
     );
   }
