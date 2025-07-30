@@ -1,0 +1,50 @@
+.chibi-story-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  transition: opacity 0.5s ease-out;
+}
+
+.chibi-story-container.is-fading {
+  opacity: 0; 
+}
+
+.chibi-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.chibi-content-wrapper.fading {
+  opacity: 0;
+}
+
+.chibi-image {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 30px;
+  filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.2));
+  animation: popIn 0.8s ease-out forwards;
+}
+
+.chibi-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  line-height: 1.6;
+  min-height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: slideUp 0.8s ease-out 0.3s forwards;
+  opacity: 0;
+}
